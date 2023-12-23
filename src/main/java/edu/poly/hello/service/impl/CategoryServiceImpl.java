@@ -26,6 +26,11 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
+	public Page<Category> findByNameContaining(String name, Pageable pageable) {
+		return categoryRepository.findByNameContaining(name, pageable);
+	}
+
+	@Override
 	public <S extends Category> S save(S entity) {
 		return categoryRepository.save(entity);
 	}
